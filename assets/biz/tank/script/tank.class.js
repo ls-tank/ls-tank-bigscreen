@@ -41,6 +41,8 @@ function Tank(prefab, options, playgroundNode) {
         nickname: options.nickname
     };
     
+    this.price = (this.equip.head + this.equip.body + this.equip.wheel + 3) * 60;
+    
     this.component.init(this.equip);
     
     this.appendToPlayground(playgroundNode, this.getInitPosition());
@@ -134,10 +136,6 @@ Tank.prototype.getPosition = function() {
         x: this.node.x,
         y: this.node.y
     };
-};
-
-Tank.prototype.updateHp = function() {
-    
 };
 
 

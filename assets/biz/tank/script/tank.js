@@ -63,6 +63,10 @@ cc.Class({
         boomSound: {
             default: null,
             url: cc.AudioClip
+        },
+        showSound: {
+            default: null,
+            url: cc.AudioClip
         }
     },
     
@@ -86,6 +90,8 @@ cc.Class({
     onLoad: function() {
         this.moveAnim = this.node.children[1].children[1].getComponent('cc.Animation');
         this.boomAnim = this.node.getComponent('cc.Animation');
+        
+        cc.audioEngine.playEffect(this.showSound, false);
     },
 
     update: function(dt) {

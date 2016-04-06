@@ -220,7 +220,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "8b648FXDBpDg6GL9najV9Rs"
+    "fileId": "8b5f1opi+tLvoRtwp2bjqJw"
   },
   {
     "__type__": "cc.Mask",
@@ -237,7 +237,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "8a20aXxvQRJzo+VTr4nmrTM"
+    "fileId": "3ad0elSWblBuaq98TQZLW77"
   },
   {
     "__type__": "cc.Node",
@@ -389,7 +389,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "be96fUvj0xNf7I7p59psTOE"
+    "fileId": "fd806zkdPNC3q+L6E9wQJpk"
   },
   {
     "__type__": "cc.Node",
@@ -499,7 +499,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "b00754HtCNCIbG+uSyizyCS"
+    "fileId": "e3bf4YW0xhGrrF6iCEcE6r/"
   },
   {
     "__type__": "cc.Node",
@@ -588,7 +588,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "3c5b9Ne+lBLEothSnRuy7B5"
+    "fileId": "c3654rOa0RN16P7NduwRp6+"
   },
   {
     "__type__": "cc.Node",
@@ -677,7 +677,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "100ed+7McxAzJaF2ibtdj1j"
+    "fileId": "8e03dafmuNDxK9S1IZnxbyE"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -685,7 +685,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "2a7dbH7QS9MOoqmYFy3I2z+"
+    "fileId": "471a6DUzyJEK7ZSwP9bsRoK"
   },
   {
     "__type__": "cc.Node",
@@ -765,7 +765,7 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "b3595lxrnVNeIFtHHPu0vMJ"
+    "fileId": "d939eqDq6RC0K9cxQw10np6"
   },
   {
     "__type__": "6b3a1nXPHtDTpnloOLSbXSa",
@@ -881,6 +881,9 @@
     },
     "boomSound": {
       "__uuid__": "72c82fed-a8ac-49dd-b7e9-bc0e9b342c74"
+    },
+    "showSound": {
+      "__uuid__": "fe6a8a65-54c8-4fff-b0c0-9f543a38d50a"
     }
   },
   {
@@ -936,6 +939,6 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "a9b14pzGiJGEa8FQfg2GT9/"
+    "fileId": "f06deFUqqVCC4lo8wMsQKqG"
   }
 ]
