@@ -1,0 +1,90 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "boom",
+  "_objFlags": 0,
+  "_duration": 0.35,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "396129cb-78cb-4eba-b716-b6a8e251c178"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "34b102fc-e52d-47b8-8999-ced5c2741582"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "7f931e54-700f-4464-a2fc-e4262ec29155"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "c9432534-d030-49b8-8d01-ab5184ab7fd2"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "be978481-0f9e-49f5-ba78-816c01112da8"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "de71ddd8-93f1-4291-a284-98ed595fba8d"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "5089b6b0-c6ca-4e3d-87ee-37779721a95a"
+            }
+          },
+          {
+            "frame": 0.23333333333333334,
+            "value": {
+              "__uuid__": "3ff903dd-a05b-45b2-9868-4882070c4a6a"
+            }
+          },
+          {
+            "frame": 0.26666666666666666,
+            "value": {
+              "__uuid__": "142d7897-aa5e-44b0-867a-d97f0b062bc6"
+            }
+          },
+          {
+            "frame": 0.3,
+            "value": {
+              "__uuid__": "89822a8b-74bc-4186-a81d-9f1903261f11"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "407b5616-fe0f-474d-b2c4-67c4abc170e4"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.3333333333333333,
+      "func": "boomEnd",
+      "params": []
+    }
+  ]
+}
