@@ -1,14 +1,15 @@
 var Connect = require('connect');
 
 var Tank = require('tank.class');
-var TanksSet = require('tanksSet');
-
 var Bullet = require('bullet.class');
-var BulletsSet = require('bulletsSet');
+var Buff = require('buff.class');
+
+var BuffsSet = require('buffsSet');
 
 var NodePool = require('nodePool');
 var Utils = require('utils');
 
+var TanksSet = require('tanksSet');
 var PlayersSet = require('playersSet');
 
 cc.Class({
@@ -28,6 +29,10 @@ cc.Class({
             type: cc.Prefab
         },
         bulletPrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+        buffPrefab: {
             default: null,
             type: cc.Prefab
         }
@@ -61,12 +66,15 @@ cc.Class({
             direction: tank.component.direction,
             position: tank.getPosition(),
             level: tank.equip.head,
-            attack: tank.component.attack
+            attack: tank.component.buffs.attack > 0 ? tank.component.attack * 2 : tank.component.attack
         };
         
         tank.component.fireAction();
         new Bullet(this.bulletPrefab, options, this.node);
-        
+    },
+    
+    createBuff: function(options) {
+        new Buff(this.buffPrefab, options, this.node);
     },
     
     onReceiveDataServer: function() {
@@ -79,6 +87,12 @@ cc.Class({
     onLoad: function() {
         Connect.connect();
         this.onReceiveDataServer();
+        setInterval(() => {
+            // BuffsSet.removeAll();
+            // this.createBuff();
+            // this.createBuff();
+        }, 5000);
+        this.createBuff();
     },
     
     update: function() {

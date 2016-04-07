@@ -102,10 +102,21 @@
     },
     "buffsArray": [
       {
+        "__uuid__": "ff9ae38a-a93a-4dc4-83a9-7daff43c1734"
+      },
+      {
+        "__uuid__": "63e07253-0092-4499-89e6-6ce132290525"
+      },
+      {
+        "__uuid__": "cdb8bf82-c3c4-4a9c-83cb-ea853231a218"
+      },
+      {
         "__uuid__": "bf73186e-e131-4498-ae99-94b06de438b7"
       }
     ],
-    "type": null
+    "buffSound": {
+      "__uuid__": "2790efba-65e5-4851-a674-d199f177eda2"
+    }
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -113,6 +124,6 @@
       "__id__": 1
     },
     "asset": null,
-    "fileId": "065c53UQmxKbr6Ij+D3FzYB"
+    "fileId": "8a619nkN35FWJvIT70zixbD"
   }
 ]

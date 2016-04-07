@@ -1,25 +1,34 @@
-cc.Class({
-    extends: cc.Component,
+function BuffsSet() {
+    var array = {};
+    var index = 0;
+    
+    var push = function(value) {
+        array[++index] = value;
+        return index;
+    };
+    
+    var remove = function(index) {
+        delete array[index];
+    };
+    
+    var getAll = function() {
+        return array;
+    };
+    
+    var removeAll = function() {
+        for (var i in array) {
+            array[i].destroy()
+        }
+    };
+    
+    return {
+        push: push,
+        remove: remove,
+        getAll: getAll,
+        removeAll: removeAll
+    };
+}
 
-    properties: {
-        // foo: {
-        //    default: null,
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
-    },
+var buffsSet = new BuffsSet();
 
-    // use this for initialization
-    onLoad: function () {
-
-    },
-
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
-});
+module.exports = buffsSet;

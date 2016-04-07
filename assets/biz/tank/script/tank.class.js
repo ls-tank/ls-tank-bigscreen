@@ -18,6 +18,8 @@ function Tank(prefab, options, playgroundNode) {
     this.colliderFlag = 2;
     this.colliderFlags = 2;
     
+    
+    
     this.component.velocity = { x: 0, y: 0 };
     this.component.direction = 0;
     this.component.halfSize = { x: 36, y: 36 };
@@ -49,12 +51,35 @@ function Tank(prefab, options, playgroundNode) {
     this.appendToTanksSet();
     
     this.addListener();
+    
+    this.component.buffs = {
+        attack: 0,
+        def: 0,
+        speed: 0
+    };
 }
 
 Tank.prototype.addListener = function() {
+    
+    this.interval = setInterval(() => {
+        var items = this.component.buffs;
+        for (var i in items) {
+            if (items[i] === 1) {
+                this.hideBuff(i);
+            }
+            
+            if (items[i] > 0) {
+                items[i]--
+            }
+        }
+    }, 1000);
+    
     this.node.on('beAttack', event => {
+        this.component.explosionAction();
+        
         var bullet = event.detail;
-        this.component.hp -= bullet.attack;
+        var attack = this.component.buffs.def > 0 ? bullet.attack / 2 : bullet.attack;
+        this.component.hp -= attack;
         
         this.component.updateHp();
         
@@ -69,8 +94,6 @@ Tank.prototype.addListener = function() {
             ToastQueue.push(winner, loser);
             TanksSet.remove(this.key);
             this.component.boom();
-            
-            
         } 
     });
     
@@ -105,13 +128,14 @@ Tank.prototype.getInitPosition = function() {
 };
 
 Tank.prototype.destroy = function() {
+    clearInterval(this.interval);
     this.component.destroy();
 };
 
 Tank.prototype.rotate = function(direction) {
     var deg = [0, 90, 180, 270];
 
-    this.node.children[1].runAction(cc.rotateTo(0.1, deg[direction]));
+    this.node.children[2].runAction(cc.rotateTo(0.1, deg[direction]));
 };
 
 Tank.prototype.changeMotionState = function(direction) {
@@ -138,5 +162,30 @@ Tank.prototype.getPosition = function() {
     };
 };
 
+Tank.prototype.showBuff = function(type) {
+    if (type === 'hp') {
+        if (this.component.hp < this.component.maxHp) {
+            this.component.hp++;
+            this.component.updateHp();
+        }
+        return;
+    }
+    this.component.buffs[type] = 15;
+    var index = {
+        attack: 0,
+        def: 1,
+        speed: 2
+    }[type];
+    this.component.showBuff(index);
+};
+
+Tank.prototype.hideBuff = function(type) {
+    var index = {
+        attack: 0,
+        def: 1,
+        speed: 2
+    }[type];
+    this.component.hideBuff(index);
+};
 
 module.exports = Tank;

@@ -10,16 +10,21 @@ cc.Class({
             default: [],
             type: cc.SpriteFrame
         },
-        type: {
-            default: null
+        buffSound: {
+            default: null,
+            url: cc.AudioClip
         }
     },
     
-    init: function() {
-        
+    getBuff: function() {
+        cc.audioEngine.playEffect(this.buffSound, false);
     },
     
-    onLoad: function() {
-        
+    init: function(type) {
+        this.buff.spriteFrame = this.buffsArray[type];
+    },
+    
+    onDestroy: function() {
+        this.node.destroy();
     }
 });

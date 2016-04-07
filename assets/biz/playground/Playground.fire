@@ -369,7 +369,7 @@
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_isSystemFontUsed": true,
-    "_N$string": ".",
+    "_N$string": " ",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$overflow": 0
@@ -479,6 +479,9 @@
     },
     "bulletPrefab": {
       "__uuid__": "79b207cc-55c7-42a8-ae1f-c76321b2b465"
+    },
+    "buffPrefab": {
+      "__uuid__": "2c832765-8369-4438-873c-a7cc845d7ff9"
     }
   },
   {

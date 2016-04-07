@@ -67,7 +67,17 @@ cc.Class({
         showSound: {
             default: null,
             url: cc.AudioClip
-        }
+        },
+        explosionSound: {
+            default: null,
+            url: cc.AudioClip
+        },
+        buffsEffects: {
+            default: [],
+            type: cc.Sprite  
+        },
+        isMove: false,
+        
     },
     
     init: function(equip) {
@@ -83,32 +93,43 @@ cc.Class({
         this.hp = level.body[equip.body];
         this.speed = level.wheel[equip.wheel];
         
-        // this.moveSound = this.node.getComponent('cc.AudioSource');
-        // this.moveSound.play();
     },
     
     onLoad: function() {
-        this.moveAnim = this.node.children[1].children[1].getComponent('cc.Animation');
+        this.moveAnim = this.node.children[2].children[1].getComponent('cc.Animation');
         this.boomAnim = this.node.getComponent('cc.Animation');
         
         cc.audioEngine.playEffect(this.showSound, false);
+        
+        this.buffsAnims = this.buffsEffects.map(item => {
+            item.setVisible(false);
+            return item.node.getComponent('cc.Animation');
+        });
+        
+        this.moveSound = this.node.getComponent('cc.AudioSource')
+        // setInterval(() => {
+        //     if (this.isMove) {
+        //         this.moveSound.play();
+        //     }
+        // }, 100);
     },
 
     update: function(dt) {
-        // this.moveSound.play();
         if (this.velocity.x === 0 && this.velocity.y === 0) {
+            this.isMove = false;
             this.moveAnim.stop();
-            // this.moveSound.stop();
             return; 
         }
-            
+        
+        this.isMove = true;
         if (!this.moveAnim.getAnimationState('move').isPlaying) {
             this.moveAnim.play();   
         }
         
-        
-        this.node.x += this.velocity.x * dt;
-        this.node.y += this.velocity.y * dt;
+        var x = this.buffs.speed > 0 ? this.velocity.x * 1.5 : this.velocity.x;
+        var y = this.buffs.speed > 0 ? this.velocity.y * 1.5 : this.velocity.y;
+        this.node.x += x * dt;
+        this.node.y += y * dt;
     },
     
     fireAction: function() {
@@ -119,8 +140,22 @@ cc.Class({
         cc.audioEngine.playEffect(this.boomSound, false);
     },
     
+    explosionAction: function() {
+        cc.audioEngine.playEffect(this.explosionSound, false);
+    },
+    
     updateHp: function() {
         this.hpBox.width = this.hp / this.maxHp * 80;
+    },
+    
+    showBuff: function(index) {
+        this.buffsEffects[index].setVisible(true);
+        this.buffsAnims[index].play();
+    },
+    
+    hideBuff: function(index) {
+        this.buffsEffects[index].setVisible(false);
+        this.buffsAnims[index].stop();
     },
     
     boom: function() {
