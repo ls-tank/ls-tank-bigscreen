@@ -41,6 +41,7 @@ cc.Class({
     createTank: function(data) {
         var tank = new Tank(this.tankPrefab, data, this.node);
         PlayersSet.set(data.uid, tank);
+        console.log(PlayersSet.getAll());
     },
     
     removeTank: function(uid) {
