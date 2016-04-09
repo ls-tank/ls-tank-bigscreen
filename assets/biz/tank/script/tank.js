@@ -1,3 +1,5 @@
+
+
 var level = {
     head: [1, 2, 3, 4, 5, 6],
     body: [5, 6, 7, 8, 9, 10],
@@ -9,6 +11,7 @@ cc.Class({
     
     boomEnd: function() {
         this.node.destroy();
+        this.node.emit('boomEnd');
     },
     
     properties: {
