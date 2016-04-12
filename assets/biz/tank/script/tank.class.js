@@ -87,8 +87,9 @@ Tank.prototype.addListener = function() {
             var winner = bullet.owner;
             var loser = this.key;
             
-            Connect.emit('score', {
-                winner: winner
+            Connect.emit('b-score', {
+                winner: winner,
+                price: this.price
             });
             
             ToastQueue.push(winner, loser);
@@ -106,7 +107,6 @@ Tank.prototype.addListener = function() {
     });
     
     this.node.on('boomEnd', event => {
-        // todo 携带攻击者的信息
         Connect.emit('b-boom', {
             loser: this.key
         }); 

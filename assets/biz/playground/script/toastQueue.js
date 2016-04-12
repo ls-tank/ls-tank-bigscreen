@@ -9,7 +9,6 @@ function ToastQueue() {
     
     var push = function(winner, loser) {
         data.push(new ToastItem(winner, loser));
-        // todo
     };
     
     var unshift = function(winner, loser) {
